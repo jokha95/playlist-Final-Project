@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { Typography, Box } from '@mui/material';
-import { useParams } from 'react-router-dom';
-import ThumbDownAltOutlinedIcon from '@mui/icons-material/ThumbDownAltOutlined';
-import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
-import ReactPlayer from 'react-player';
-import { useStateContext } from '../contexts/StateContextProvider';
-import VideoItem from './VideoItem';
+import React, { useEffect, useState } from "react";
+import { Typography, Box } from "@mui/material";
+import { useParams } from "react-router-dom";
+import ThumbDownAltOutlinedIcon from "@mui/icons-material/ThumbDownAltOutlined";
+import ThumbUpAltOutlinedIcon from "@mui/icons-material/ThumbUpAltOutlined";
+import ReactPlayer from "react-player";
+import { useStateContext } from "../contexts/StateContextProvider";
+import VideoItem from "./Item";
 
 const VideoDetail = () => {
   const { id } = useParams();
@@ -28,41 +28,41 @@ const VideoDetail = () => {
     <>
       {videoDetail && (
         <Box
-          className='video-detail-container'
+          className="video-detail-container"
           sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
+            display: "flex",
+            justifyContent: "space-between",
           }}
         >
           <Box
             sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
               mt: 1,
               pb: 1,
-              position: 'relative',
-              width: '100%',
+              position: "relative",
+              width: "100%",
             }}
           >
             <Box
-              className='video-detail'
-              sx={{ position: 'fixed', top: '100px', left: '10px' }}
+              className="video-detail"
+              sx={{ position: "fixed", top: "100px", left: "10px" }}
             >
               <ReactPlayer
-                className='video-card'
+                className="video-card"
                 controls
                 url={`https://www.youtube.com/watch?v=${id}`}
               />
               <Typography sx={{ fontSize: 18, fontWeight: 600, p: 1.5 }}>
                 {videoDetail?.snippet?.title}
               </Typography>
-              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
                 <Box sx={{ opacity: 0.7 }}>
-                  <Typography sx={{ marginBottom: '5px' }}>
+                  <Typography sx={{ marginBottom: "5px" }}>
                     {parseInt(
                       videoDetail?.statistics?.viewCount
-                    ).toLocaleString('en-US')}{' '}
+                    ).toLocaleString("en-US")}{" "}
                     views
                   </Typography>
                   {/* <Typography>{videoDetail?.snippet?.publishedAt}</Typography> */}
@@ -71,18 +71,18 @@ const VideoDetail = () => {
                 <Box
                   sx={{
                     opacity: 0.7,
-                    display: 'flex',
-                    flexWrap: 'wrap',
+                    display: "flex",
+                    flexWrap: "wrap",
                     gap: 3,
                   }}
-                  className='like-dislike'
+                  className="like-dislike"
                 >
                   <Typography
                     sx={{
-                      marginBottom: '5px',
-                      display: 'flex',
-                      justifyContent: 'flex-start',
-                      alignItems: 'center',
+                      marginBottom: "5px",
+                      display: "flex",
+                      justifyContent: "flex-start",
+                      alignItems: "center",
                       gap: 1,
                     }}
                   >
@@ -90,15 +90,15 @@ const VideoDetail = () => {
                     <Typography>
                       {parseInt(
                         videoDetail?.statistics?.likeCount
-                      ).toLocaleString('en-US')}
+                      ).toLocaleString("en-US")}
                     </Typography>
                   </Typography>
                   <Typography
                     sx={{
-                      marginBottom: '5px',
-                      display: 'flex',
-                      justifyContent: 'flex-start',
-                      alignItems: 'center',
+                      marginBottom: "5px",
+                      display: "flex",
+                      justifyContent: "flex-start",
+                      alignItems: "center",
                       gap: 1,
                     }}
                   >
@@ -106,7 +106,7 @@ const VideoDetail = () => {
                     <Typography>
                       {parseInt(
                         videoDetail?.statistics?.dislikeCount
-                      ).toLocaleString('en-US')}
+                      ).toLocaleString("en-US")}
                     </Typography>
                   </Typography>
                 </Box>
@@ -117,14 +117,14 @@ const VideoDetail = () => {
             sx={{
               mt: 10,
             }}
-            className='related-videos'
+            className="related-videos"
           >
             <Typography
-              sx={{ fontSize: 25, fontWeight: 800, m: 2, textAlign: 'center' }}
+              sx={{ fontSize: 25, fontWeight: 800, m: 2, textAlign: "center" }}
             >
               Similar Videos
             </Typography>
-            <Box className='related-videos-container'>
+            <Box className="related-videos-container">
               {data?.map((video) => (
                 <VideoItem
                   video={video}

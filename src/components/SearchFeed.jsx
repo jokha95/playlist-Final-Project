@@ -1,22 +1,19 @@
-import React from 'react';
-import { Box } from '@mui/material';
-import VideoItem from './VideoItem';
-import { useStateContext } from '../contexts/StateContextProvider';
-import Loader from './Loader';
+import React from "react";
+import { Box } from "@mui/material";
+import VideoItem from "./Item";
+import { useStateContext } from "../contexts/StateContextProvider";
 
 const SearchFeed = () => {
-  const { data, loading } = useStateContext();
-  document.title = 'U📺tube';
-  if (loading) {
-    return <Loader />;
-  }
+  const { data } = useStateContext();
+  document.title = "JOUKHA YOUTUBE";
+
   return (
     <Box
       sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-        alignItems: 'center',
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        alignItems: "center",
         gap: 2,
         p: 1,
         mt: 10,

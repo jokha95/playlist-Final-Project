@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Typography, Card, CardContent, CardMedia } from '@mui/material';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Typography, Card, CardContent, CardMedia } from "@mui/material";
 
 const VideoItem = ({ video, id }) => {
   return (
@@ -10,26 +10,26 @@ const VideoItem = ({ video, id }) => {
           ? `/video-details/${id}`
           : `/video-details/cV2gBU6hKfY`
       }
-      style={{ textDecoration: 'none' }}
+      style={{ textDecoration: "none" }}
       onClick={() => window.scrollTo(0, 0)}
     >
       <Card
-        className='recipe-card'
+        className="recipe-card"
         sx={{
           width: 400,
           height: 310,
-          boxShadow: 'none',
+          boxShadow: "none",
           borderRadius: 0,
         }}
       >
         <CardMedia
-          component='img'
-          height='250'
+          component="img"
+          height="250"
           image={
             video?.snippet?.thumbnails?.high.url ||
-            'https://i.pinimg.com/474x/30/88/a3/3088a3ebaf713600adacd00397ee410d.jpg'
+            "https://i.pinimg.com/474x/30/88/a3/3088a3ebaf713600adacd00397ee410d.jpg"
           }
-          alt='green iguana'
+          alt="green iguana"
           sx={{ borderRadius: 2 }}
         />
         <CardContent>
