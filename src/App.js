@@ -1,24 +1,27 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import veed from "./components/veed";
-import Navbar from "./components/bar";
-import { Box } from "@mui/material";
-import VideoDetail from "./components/Detail";
-import SearchFeed from "./components/SearchFeed";
-import "./app.css";
+import React from "react";
+import { YouTubePlayerProvider } from "./context/YouTubePlayerContext";
+import ThemeProvider from "./context/ThemeContext";
+import { Routes, Route } from "react-router-dom";
+import DiscriptionlStyle from "./DiscriptionlStyle";
+import Header from "./components/Header";
+import VideoPlayer from "./components/VideoPlayer";
+import SearchResults from "./detailsveed/Results";
+import VideoInfo from "./detailsveed/InfoVeed";
 
-const App = () => {
+function App() {
   return (
-    <Router>
-      <Box sx={{ p: 1 }}>
-        <Navbar />
-        <Switch>
-          <Route exact path="/" component={veed} />
-          <Route path="/video-details/:id" component={VideoDetail} />
-          <Route path="/search" component={SearchFeed} />
-        </Switch>
-      </Box>
-    </Router>
+    <YouTubePlayerProvider>
+      <ThemeProvider>
+        <DiscriptionlStyle />
+        <Header />
+        <VideoPlayer />
+        <Routes>
+          <Route path="/search" element={<SearchResults />} />
+          <Route path="/video" element={<VideoInfo />} />
+        </Routes>
+      </ThemeProvider>
+    </YouTubePlayerProvider>
   );
-};
+}
 
 export default App;
