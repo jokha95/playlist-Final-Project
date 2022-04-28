@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json.schemastore.org/eslintrc",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true,
+    "jest": true
+  },
+  "ignorePatterns": ["*jpg", "**/*.jpg", "/src/bg.jpg"],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "semi": 2,
+    "linebreak-style": ["error", "unix"]
+  },
+  "extends": ["react-app", "react-app/jest"],
+  "overrides": [
+    {
+      "files": ["**/*.stories.*"],
+      "rules": {
+        "import/no-anonymous-default-export": "off"
+      }
+    }
+  ]
+}
