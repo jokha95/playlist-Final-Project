@@ -37,3 +37,7 @@ export const YouTubeVideoDescription = styled.p`
   padding-top: 20px;
   display: block;
 `;
+
+export const AddToPlaylistButton = styled.button`
+  background-color: ${({ theme }) => theme.primary};
+`;

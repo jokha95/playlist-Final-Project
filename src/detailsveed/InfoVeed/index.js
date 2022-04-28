@@ -3,7 +3,11 @@ import { useContext } from "react";
 import { YouTubePlayerContext } from "../../context/YouTubePlayerContext";
 import axios from "axios";
 import useSWR from "swr";
-import { VideoPlayerWrapper, YouTubeVideoWrapper } from "./css";
+import {
+  VideoPlayerWrapper,
+  YouTubeVideoWrapper,
+  AddToPlaylistButton,
+} from "./css";
 
 export default function VideoPlayerRoute() {
   const { videoId } = useContext(YouTubePlayerContext);
@@ -25,8 +29,7 @@ export default function VideoPlayerRoute() {
     <VideoPlayerWrapper>
       <YouTubeVideoWrapper></YouTubeVideoWrapper>
       <br />
-      <h1> Add to playList++ </h1>
-      <br />
+      <AddToPlaylistButton>Add to playlist</AddToPlaylistButton>
       <br /> <br />
     </VideoPlayerWrapper>
   );
