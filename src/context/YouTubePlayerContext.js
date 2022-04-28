@@ -11,6 +11,7 @@ export function YouTubePlayerProvider({ children }) {
   const [videoId, setVideoId] = useState(w || "");
   const [darkMode, setDarkMode] = useState(true);
   const [showVideoOnSearch, setShowVideoOnSearch] = useState(false);
+  const [playListId, setPlayListId] = useState("");
 
   return (
     <YouTubePlayerContext.Provider
@@ -23,7 +24,7 @@ export function YouTubePlayerProvider({ children }) {
         setDarkMode,
         showVideoOnSearch,
         setShowVideoOnSearch,
-        pathname
+        pathname,
       }}
     >
       {children}

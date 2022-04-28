@@ -12,7 +12,7 @@ import {
   VideoDuration,
   VideoInfo,
   VideoInfoTitle,
-  VideoInfoData
+  VideoInfoData,
 } from "./css";
 
 export default function SearchRoute() {
@@ -22,8 +22,8 @@ export default function SearchRoute() {
   const fetcher = (url) =>
     axios.get(url, {
       headers: {
-        "Access-Control-Allow-Origin": true
-      }
+        "Access-Control-Allow-Origin": true,
+      },
     });
 
   const { data, error } = useSWR(
@@ -47,7 +47,7 @@ export default function SearchRoute() {
               id: { videoId },
               title,
               views,
-              snippet: { duration, publishedAt, thumbnails }
+              snippet: { duration, publishedAt, thumbnails },
             }) => (
               <VideoResultWrapper
                 key={videoId}
