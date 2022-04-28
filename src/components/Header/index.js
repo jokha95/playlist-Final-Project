@@ -1,5 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+
+import { useNavigate, Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { YouTubePlayerContext } from "../../context/YouTubePlayerContext";
 import {
@@ -9,13 +10,13 @@ import {
   SearchButton,
   SearchButtonText,
 } from "./css";
-
+import CreatePlaylistForm from "../CreatePlaylistForm";
 export default function Header() {
   const {
     videoId,
     videoSearch,
-    setVideoSearch,
     setShowVideoOnSearch,
+    setVideoSearch,
   } = useContext(YouTubePlayerContext);
   const [search, setSearch] = useState(videoSearch);
   const navigate = useNavigate();
@@ -44,9 +45,11 @@ export default function Header() {
           <SearchButtonText>Search</SearchButtonText>
         </SearchButton>
       </SearchForm>
-      <h1> View My PlaList</h1>
-      <h1> SignUp</h1>
-      <h1> SignIn</h1>
+      <h1>
+        <Link to="/playlist">View my playlist</Link>
+      </h1>
+
+      <CreatePlaylistForm />
     </Navbar>
   );
 }
